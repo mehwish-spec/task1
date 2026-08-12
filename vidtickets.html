@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VidTickets — CoralTalk</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:#3e3e3e;
+  color:#111;
+}
+.page{
+  width:100%;
+  max-width:568px;
+  margin:0 auto;
+  background:#fff3f0;
+  overflow:hidden;
+}
+button{font-family:inherit}
+
+/* HERO */
+.hero{
+  height:250px;
+  position:relative;
+  overflow:visible;
+  color:#fff;
+  background:#4100ff;
+}
+.nav{
+  position:absolute;
+  z-index:20;
+  top:9px;left:12px;right:12px;
+  height:34px;
+  padding:0 17px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius:10px;
+  background:#3300c7;
+}
+.brand{font-weight:800;font-size:12px;letter-spacing:-.45px;white-space:nowrap}
+.brand em{font-style:normal;font-size:5px;font-weight:500;opacity:.85;margin-left:2px}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right a{color:#fff;text-decoration:none;font-size:7px;font-weight:500}
+.nav-right a.nav-start{
+  display:inline-block;
+  background:#fff;color:#3d00dc;
+  padding:6px 15px;border-radius:5px;
+  font-size:7px;
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+  border:0;
+}
+.hero-copy{
+  position:absolute;
+  z-index:15;
+  top:69px;left:35px;right:35px;
+  text-align:center;
+}
+.hero-copy h1{
+  margin:0 0 14px;
+  font-size:20px;
+  line-height:1.13;
+  letter-spacing:-.55px;
+  font-weight:700;
+}
+.actions{display:flex;justify-content:center;gap:6px}
+.action{
+  border:0;background:#fff;color:#4200dc;
+  padding:7px 13px;border-radius:5px;
+  font:700 6.5px Inter,Arial;
+  line-height:1;
+  white-space:nowrap;
+}
+
+/* Reference-matched U-shaped background transition */
+.hero-wave{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  top:230px;
+  height:105px;
+  background:#37d1c2;
+  overflow:hidden;
+}
+
+.hero-wave:before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:-10%;
+  top:-30px;
+  width:120%;
+  height:85px;
+  background:#4100ff;
+  border-radius:0 0 50% 50% / 0 0 100% 100%;
+}
+
+.hero-wave:after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:-10%;
+  top:28px;
+  width:120%;
+  height:105px;
+  background:#fff3f0;
+  clip-path:polygon(
+    0 22%,
+    5% 25%,
+    10% 29%,
+    15% 34%,
+    20% 39%,
+    25% 44%,
+    30% 48%,
+    35% 52%,
+    40% 55%,
+    45% 57%,
+    50% 58%,
+    55% 57%,
+    60% 55%,
+    65% 52%,
+    70% 48%,
+    75% 44%,
+    80% 39%,
+    85% 34%,
+    90% 29%,
+    95% 25%,
+    100% 22%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Blank media composition: same layered geometry as the reference, no imagery */
+.hero-media{
+  position:relative;
+  z-index:10;
+  width:86%;
+  height:285px;
+  margin:-92px auto 0;
+  background:transparent;
+}
+.hero-side,
+.hero-center{
+  position:absolute;
+  background:#f1f1f1;
+  border:1px solid #d8d8d8;
+}
+.hero-side{
+  width:68px;
+  height:105px;
+  border-radius:4px;
+}
+.hero-side-left-1{left:0;top:14px}
+.hero-side-left-2{left:32px;top:48px;width:112px;height:130px}
+.hero-side-right-1{right:0;top:14px}
+.hero-side-right-2{right:32px;top:48px;width:112px;height:130px}
+.hero-center{
+  left:50%;
+  top:43px;
+  transform:translateX(-50%);
+  width:278px;
+  height:174px;
+  border-radius:7px;
+}
+
+/* CONTENT */
+.features{
+  margin-top:-105px;
+  padding:48px 30px 40px;
+  background:#fff3f0;
+}
+.features h2{
+  margin:0 0 8px;
+  font-size:18px;
+  line-height:1.1;
+  letter-spacing:-.5px;
+  font-weight:700;
+}
+.features h2 span{color:#7500e9;text-decoration:underline;text-decoration-color:#7500e9;text-underline-offset:3px}
+.lead{
+  margin:0 0 16px;
+  font-size:7px;
+  line-height:1.45;
+  color:#333;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+}
+.card{
+  min-height:132px;
+  padding:13px 10px 10px;
+  border-radius:9px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.number{
+  font-size:8px;
+  margin-bottom:14px;
+  display:block;
+}
+.card > div{margin:0}
+
+.card:nth-child(1){background:#7100ed}
+.card:nth-child(2){background:#00852e}
+.card:nth-child(3){background:#db00ca}
+.card:nth-child(4){background:#ff9000}
+.card h3{
+  margin:0 0 8px;
+  font-size:13px;
+  line-height:1.15;
+  letter-spacing:-.25px;
+  font-weight:700;
+}
+.card p{
+  margin:0;
+  font-size:8px;
+  line-height:1.4;
+  opacity:.94;
+}
+
+/* BLUE FEATURE */
+.blue-wrap{
+  position:relative;
+  z-index:3;
+  padding:0 28px;
+  background:transparent;
+}
+.blue-box{
+  min-height:212px;
+  border-radius:17px;
+  background:#1035f5;
+  color:#fff;
+  position:relative;
+  z-index:4;
+  overflow:hidden;
+  padding:31px 45% 20px 50px;
+}
+.blue-box h2{
+  margin:0 0 13px;
+  font-size:16px;
+  line-height:1.17;
+  letter-spacing:-.3px;
+  font-weight:700;
+}
+.blue-box p{
+  margin:0 0 9px;
+  font-size:9px;
+  line-height:1.45;
+}
+.blue-box ul{
+  margin:0;
+  padding-left:10px;
+  font-size:8px;
+  line-height:1.6;
+}
+.blue-media{
+  position:absolute;
+  right:9px;
+  top:7px;
+  width:129px;
+  height:195px;
+  border-radius:18px;
+  background:#f1f1f1;
+  border:1px solid #ddd;
+}
+
+/* PRICING */
+.pricing{
+  position:relative;
+  z-index:1;
+  margin-top:-101px;
+  padding:135px 28px 95px;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:
+    radial-gradient(6px 6px at 12% 14%,#37d1c2 0 100%,transparent 101%),
+    radial-gradient(7px 7px at 8% 62%,#34c759 0 100%,transparent 101%),
+    radial-gradient(150px 210px at 4% 20%,#34c759 0 42%,transparent 43%),
+    radial-gradient(140px 190px at 99% 32%,#ff8b00 0 45%,transparent 46%),
+    radial-gradient(170px 120px at 38% 103%,#ff00bf 0 44%,transparent 45%),
+    radial-gradient(180px 140px at 82% 103%,#00c8f2 0 44%,transparent 45%),
+    linear-gradient(135deg,#2600bd 0%,#6d00d7 45%,#eb008d 100%);
+}
+.pricing:before{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:150px;
+  left:-78px;
+  top:122px;
+  background:#2d00d1;
+  border-radius:48%;
+  transform:rotate(28deg);
+}
+.pricing:after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:210px;
+  right:-92px;
+  top:75px;
+  background:#ff8b00;
+  border-radius:48%;
+  transform:rotate(14deg);
+  opacity:.95;
+}
+.pricing-inner{
+  position:relative;
+  z-index:2;
+}
+.pricing h2{
+  margin:0 0 16px;
+  font-size:16px;
+  line-height:1.15;
+  font-weight:700;
+}
+.toggle{
+  display:inline-flex;
+  background:#fff;
+  padding:3px;
+  border-radius:20px;
+  margin-bottom:22px;
+}
+.toggle button{
+  border:0;
+  background:transparent;
+  color:#333;
+  padding:6px 14px;
+  border-radius:16px;
+  font:500 8px Inter,Arial;
+  cursor:pointer;
+}
+.toggle .active{
+  background:#222;
+  color:#fff;
+}
+.price-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  text-align:left;
+  width:100%;
+  margin:0 auto;
+}
+.price-card{
+  box-sizing:border-box;
+  width:100%;
+  padding:26px 22px;
+  background:#fff;
+  color:#111;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  position:relative;
+}
+.price-icon{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 28% 28%,#3bc8b7 0 25%,transparent 27%),
+    radial-gradient(circle at 72% 28%,#3bc8b7 0 25%,transparent 27%),
+    radial-gradient(circle at 50% 72%,#3bc8b7 0 25%,transparent 27%);
+  margin-bottom:18px;
+}
+.price-card h3{
+  margin:0 0 14px;
+  font-size:13px;
+  line-height:1.15;
+  letter-spacing:-.2px;
+  font-weight:700;
+}
+.cost{
+  font-size:19px;
+  font-weight:700;
+  line-height:1;
+  margin-bottom:18px;
+}
+.cost small{
+  font-size:8px;
+  color:#666;
+  font-weight:500;
+}
+.trial{
+  width:100%;
+  border:1px solid #aaa;
+  background:#fff;
+  color:#1654d9;
+  border-radius:7px;
+  padding:9px 2px;
+  font:700 8px Inter,Arial;
+  margin-bottom:18px;
+  cursor:pointer;
+}
+.popular:after{
+  content:"Popular";
+  position:absolute;
+  right:18px;
+  top:20px;
+  background:#333;
+  color:#fff;
+  padding:4px 9px;
+  border-radius:12px;
+  font-size:7px;
+}
+.popular .trial{
+  background:#1539f3;
+  color:#fff;
+  border-color:#1539f3;
+}
+.price-card ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  font-size:7px;
+  color:#666;
+  line-height:1.7;
+}
+.price-card li:before{
+  content:"✓";
+  color:#416df4;
+  margin-right:6px;
+}
+
+/* STUDENT CARDS — intentionally blank photo areas */
+.cards-wave{
+  position:relative;
+  z-index:2;
+  margin-top:-26px;
+  height:26px;
+  background:#37d1c2;
+  overflow:hidden;
+}
+.cards-wave:after{
+  content:"";
+  position:absolute;
+  left:-10%;
+  top:6px;
+  width:120%;
+  height:26px;
+  background:#1235f5;
+  clip-path:polygon(
+    0 22%,5% 25%,10% 29%,15% 34%,20% 39%,25% 44%,30% 48%,35% 52%,40% 55%,45% 57%,50% 58%,55% 57%,60% 55%,65% 52%,70% 48%,75% 44%,80% 39%,85% 34%,90% 29%,95% 25%,100% 22%,
+    100% 100%,0 100%
+  );
+}
+.student-area{
+  position:relative;
+  height:105px;
+  background:#1235f5;
+  padding:0 24px;
+  overflow:visible;
+}
+.student-cards{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:-58px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:12px;
+}
+.student-card{
+  width:70px;
+  height:116px;
+  padding:5px 5px 4px;
+  background:#fff;
+  border-radius:5px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+  transform-origin:center bottom;
+  flex:none;
+}
+.student-card .photo{
+  width:60px;
+  height:86px;
+  background:#f1f1f1;
+  border:1px solid #dedede;
+  border-radius:2px;
+}
+.student-card span{
+  display:block;
+  margin-top:4px;
+  font-size:5.5px;
+  font-weight:600;
+  color:#222;
+}
+.card-a{transform:rotate(-6deg);margin-top:5px}
+.card-b{transform:rotate(4deg);margin-top:0}
+.card-c{transform:rotate(-3deg);margin-top:3px}
+.card-d{transform:rotate(5deg);margin-top:-2px}
+.card-e{transform:rotate(-3deg);margin-top:2px}
+.card-f{transform:rotate(5deg);margin-top:4px}
+
+/* FOOTER */
+.footer{
+  background:#1235f5;
+  color:#fff;
+  text-align:center;
+  padding:4px 20px 32px;
+}
+.footer h2{
+  margin:0 0 15px;
+  font-size:16px;
+  font-weight:700;
+}
+.footer .action{
+  font-size:7px;
+  padding:7px 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:420px){
+  .hero{height:285px}
+  .hero-wave{top:266px;height:92px}
+  .hero-wave:before{top:-24px;height:72px}
+  .hero-wave:after{top:36px;height:76px}
+  .hero-media{width:86%;height:220px;margin-top:-165px}
+  .hero-side{width:55px;height:78px}
+  .hero-side-left-1{left:0;top:18px}
+  .hero-side-left-2{left:32px;top:48px;width:82px;height:100px}
+  .hero-side-right-1{right:0;top:18px}
+  .hero-side-right-2{right:32px;top:48px;width:82px;height:100px}
+  .hero-center{top:42px;width:62%;height:150px}
+
+  .features{
+    margin-top:-46px;
+    padding:38px 20px 40px
+  }
+  .blue-wrap{padding-left:20px;padding-right:20px}
+  .blue-box{padding-left:28px;padding-right:42%}
+  .blue-media{right:7px;top:6px;width:88px;height:145px;border-radius:14px}
+  .pricing{padding-left:20px;padding-right:20px}
+  .student-area{height:90px}
+  .card{min-height:126px;padding:11px 8px}
+  .card h3{font-size:10px}
+}
+</style>
+
+</head>
+<body>
+<main class="page">
+
+<section class="hero">
+  <nav class="nav">
+    <div class="brand">VidTickets<em>™ by CoralTalk</em></div>
+    <div class="nav-right">
+      <a href="#pricing">Pricing</a>
+      <a href="#">Log in</a>
+      <a href="#pricing" class="nav-start">Start Free</a>
+    </div>
+  </nav>
+
+  <div class="hero-copy">
+    <h1>Video discussions to<br>make learning engaging,<br>fun, &amp; empowering.</h1>
+    <div class="actions">
+      <button class="action">Teachers - Get started</button>
+      <button class="action">Schools - Learn more</button>
+    </div>
+  </div>
+
+  <div class="hero-wave"></div>
+</section>
+
+<div class="hero-media" aria-label="Blank media placeholder">
+  <div class="hero-side hero-side-left-1"></div>
+  <div class="hero-side hero-side-left-2"></div>
+  <div class="hero-side hero-side-right-1"></div>
+  <div class="hero-side hero-side-right-2"></div>
+  <div class="hero-center"></div>
+</div>
+
+<section class="features">
+  <h2>The loop your class <span>loved.</span></h2>
+  <p class="lead">When Microsoft shut down Flipgrid, districts lost the easiest way to hear every student out loud.<br>
+  VidTalk brings it back — and now every reply grades itself against your rubric.</p>
+
+  <div class="cards">
+    <article class="card">
+      <span class="number">01</span>
+      <div><h3>Post a<br>question</h3>
+      <p>Type any prompt — a book recommendation, a lab reflection, an exit ticket. Set a response length and a rubric.</p></div>
+    </article>
+    <article class="card">
+      <span class="number">02</span>
+      <div><h3>Students<br>reply on video</h3>
+      <p>Kids record from any device in one take. No accounts to manage, no software to install.</p></div>
+    </article>
+    <article class="card">
+      <span class="number">03</span>
+      <div><h3>Classmates<br>reply to<br>classmates</h3>
+      <p>Students respond to each other's videos, turning a solo assignment into real discussion.</p></div>
+    </article>
+    <article class="card">
+      <span class="number">04</span>
+      <div><h3>Coral grades<br>every reply</h3>
+      <p>Each response is scored to your rubric and returned with specific feedback — automatically.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="blue-wrap">
+  <div class="blue-box">
+    <h2>The engagement, without<br>the grading backlog.</h2>
+    <p>Every video reply gets transcribed, scored to your existing rubric, and sent back with specific, encouraging feedback before your next class starts.</p>
+    <ul>
+      <li>Uses the rubric you already have, nothing new to build</li>
+      <li>Feedback is specific, not just a number</li>
+      <li>Class-wide misconceptions surface automatically, so you know what to reteach</li>
+    </ul>
+    <div class="blue-media" aria-label="Blank illustration placeholder"></div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <h2>Affordable, teacher-friendly pricing</h2>
+    <div class="toggle">
+      <button>Yearly (Save 30%)</button>
+      <button class="active">Monthly</button>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-icon"></div>
+        <h3>VidTickets</h3>
+        <div class="cost">$9.99 <small>/ month</small></div>
+        <button class="trial">Start a 7 Day Free Trial →</button>
+        <ul>
+          <li>Up to 10 hours worth of VidTickets each month</li>
+          <li>1:1 conversational practice for every student</li>
+          <li>Up to two classes</li>
+        </ul>
+      </article>
+
+      <article class="price-card popular">
+        <div class="price-icon"></div>
+        <h3>VidTickets + AI Grading</h3>
+        <div class="cost">$14.99 <small>/ month</small></div>
+        <button class="trial">Start a 7 Day Free Trial →</button>
+        <ul>
+          <li>Up to 15 hours worth of VidTickets each month</li>
+          <li>Personalized feedback + grading based on your rubrics</li>
+          <li>Prioritized customer support</li>
+          <li>Unlimited classes</li>
+          <li>AI transcripts + summaries</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="cards-wave"></div>
+
+<section class="student-area">
+  <div class="student-cards" aria-label="Blank student photo placeholders">
+    <div class="student-card card-a"><div class="photo"></div><span>Maya</span></div>
+    <div class="student-card card-b"><div class="photo"></div><span>Jordan</span></div>
+    <div class="student-card card-c"><div class="photo"></div><span>Kim</span></div>
+    <div class="student-card card-d"><div class="photo"></div><span>Sam</span></div>
+    <div class="student-card card-e"><div class="photo"></div><span>Priya</span></div>
+    <div class="student-card card-f"><div class="photo"></div><span>Curtis</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <h2>Turn learning into dialogue.</h2>
+  <button class="action">Teachers - Get started</button>
+  <button class="action">Schools - Learn more</button>
+</footer>
+
+</main>
+</body>
+</html>
