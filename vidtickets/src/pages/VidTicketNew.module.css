@@ -1,0 +1,292 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #f6f4ff 0%, #eef6ff 55%, #fbf1fb 100%);
+  padding: 24px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.frame {
+  flex: 1;
+  display: flex;
+  border: 2px solid #111;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 56px 48px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.backCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e2e2e8;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backCircle:hover {
+  background: #f5f5f8;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #161616;
+}
+
+.progressBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.progressSegment {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: #e2e2e8;
+}
+
+.progressActive {
+  background: #37d1c2;
+}
+
+.formCard {
+  max-width: 620px;
+  background: #fff;
+  border: 1px solid #ececf2;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(20, 10, 60, 0.05);
+}
+
+.field {
+  margin-bottom: 26px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.fieldLabel {
+  margin: 0 0 10px;
+  font: 700 14px Inter, Arial;
+  color: #222;
+}
+
+.fieldHint {
+  font-weight: 500;
+  color: #9a9aa2;
+  font-size: 12px;
+}
+
+.inputRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textInput {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13.5px;
+  padding: 12px 48px 12px 14px;
+  border: 1px solid #d8d8dd;
+  border-radius: 10px;
+  outline: none;
+  color: #222;
+}
+
+.textInput:focus {
+  border-color: #3d1bff;
+}
+
+.counter {
+  position: absolute;
+  right: 14px;
+  font-size: 11px;
+  color: #b0b0b8;
+  pointer-events: none;
+}
+
+.stepperRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #d8d8dd;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+.stepperBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e8;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepperBtn:hover:not(:disabled) {
+  background: #f5f5f8;
+}
+
+.stepperBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.stepperValue {
+  min-width: 46px;
+  text-align: center;
+  font: 700 13.5px Inter, Arial;
+  color: #222;
+}
+
+.feedbackOptions {
+  display: flex;
+  gap: 14px;
+}
+
+.optionCard {
+  flex: 1;
+  text-align: left;
+  border: 1.5px solid #e2e2e8;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionCardActive {
+  border-color: #6c5ce7;
+  background: #f7f5ff;
+}
+
+.optionIcon {
+  font-size: 20px;
+}
+
+.optionTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 700 13.5px Inter, Arial;
+  color: #1a1a1a;
+}
+
+.lockIcon {
+  font-size: 11px;
+}
+
+.optionSubtitle {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #8a8a95;
+}
+
+.toggleField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #f2f2f6;
+}
+
+.toggleField span {
+  font-size: 13.5px;
+  color: #333;
+}
+
+.toggle {
+  width: 38px;
+  height: 21px;
+  border-radius: 999px;
+  background: #d8d8dd;
+  position: relative;
+  flex-shrink: 0;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.15s ease;
+}
+
+.toggleOn {
+  background: #37d1c2;
+}
+
+.toggleOn::after {
+  left: 20px;
+}
+
+.actions {
+  max-width: 620px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+}
+
+.recordBtn {
+  border: 0;
+  background: #3d1bff;
+  color: #fff;
+  font: 700 14px Inter, Arial;
+  padding: 13px 26px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.recordBtn:hover {
+  background: #3016d1;
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding: 28px 24px 36px;
+  }
+  .feedbackOptions {
+    flex-direction: column;
+  }
+}

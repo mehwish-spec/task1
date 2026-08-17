@@ -1,0 +1,101 @@
+.faq {
+  position: relative;
+  background: #fff;
+  padding: 40px 24px 34px;
+  overflow: hidden;
+}
+
+.faqRing {
+  position: absolute;
+  z-index: 0;
+  left: -55px;
+  bottom: 26px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 22px solid #37d1c2;
+  opacity: 0.9;
+}
+
+.faqDoodle {
+  position: absolute;
+  z-index: 0;
+  right: 2px;
+  top: 0;
+  width: 170px;
+  height: 580px;
+  opacity: 0.85;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='680' viewBox='0 0 200 680'><path d='M50 -10 C10 20 5 60 25 90 C48 122 95 118 108 85 C120 55 90 28 62 40 C35 52 32 92 58 118 C100 158 165 150 185 195 C205 238 175 275 140 278 C108 281 92 250 108 225 C125 198 168 200 188 232 C210 265 205 310 185 345 C155 398 120 440 138 500 C152 548 190 570 178 620 C168 660 150 690 130 710' stroke='%235a3df0' stroke-width='1' fill='none'/></svg>")
+    no-repeat top right / contain;
+}
+
+.faqTitle {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 26px;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #161616;
+}
+
+.faqList {
+  position: relative;
+  z-index: 1;
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: #f2f2f2;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 0 18px;
+}
+
+.faqItem.open {
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  padding-bottom: 16px;
+}
+
+.faqSummary {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.faqIcon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #555;
+}
+
+.faqItem.open .faqIcon {
+  color: #ff6a3d;
+}
+
+.faqItem p {
+  margin: 0;
+  padding-left: 28px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #666;
+}

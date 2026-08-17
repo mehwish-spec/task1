@@ -1,0 +1,181 @@
+.pricing {
+  position: relative;
+  z-index: 1;
+  margin-top: -101px;
+  padding: 135px 28px 95px;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(6px 6px at 12% 14%, #37d1c2 0 100%, transparent 101%),
+    radial-gradient(7px 7px at 8% 62%, #34c759 0 100%, transparent 101%),
+    radial-gradient(150px 210px at 4% 20%, #34c759 0 42%, transparent 43%),
+    radial-gradient(140px 190px at 99% 32%, #ff8b00 0 45%, transparent 46%),
+    radial-gradient(170px 120px at 38% 103%, #ff00bf 0 44%, transparent 45%),
+    radial-gradient(180px 140px at 82% 103%, #00c8f2 0 44%, transparent 45%),
+    linear-gradient(135deg, #2600bd 0%, #6d00d7 45%, #eb008d 100%);
+}
+
+.pricing::before {
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 150px;
+  left: -78px;
+  top: 122px;
+  background: #2d00d1;
+  border-radius: 48%;
+  transform: rotate(28deg);
+}
+
+.pricing::after {
+  content: '';
+  position: absolute;
+  width: 190px;
+  height: 210px;
+  right: -92px;
+  top: 75px;
+  background: #ff8b00;
+  border-radius: 48%;
+  transform: rotate(14deg);
+  opacity: 0.95;
+}
+
+.pricingInner {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing h2 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.toggle {
+  display: inline-flex;
+  background: #fff;
+  padding: 3px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+.toggle button {
+  border: 0;
+  background: transparent;
+  color: #333;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font: 500 8px Inter, Arial;
+  cursor: pointer;
+}
+
+.toggle .active {
+  background: #222;
+  color: #fff;
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.priceCard {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 26px 22px;
+  background: #fff;
+  color: #111;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.priceIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 28%, #3bc8b7 0 25%, transparent 27%),
+    radial-gradient(circle at 72% 28%, #3bc8b7 0 25%, transparent 27%),
+    radial-gradient(circle at 50% 72%, #3bc8b7 0 25%, transparent 27%);
+  margin-bottom: 18px;
+}
+
+.priceCard h3 {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.15;
+  letter-spacing: -0.2px;
+  font-weight: 700;
+}
+
+.cost {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.cost small {
+  font-size: 8px;
+  color: #666;
+  font-weight: 500;
+}
+
+.trial {
+  width: 100%;
+  border: 1px solid #aaa;
+  background: #fff;
+  color: #1654d9;
+  border-radius: 7px;
+  padding: 9px 2px;
+  font: 700 8px Inter, Arial;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+.popular::after {
+  content: 'Popular';
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  background: #333;
+  color: #fff;
+  padding: 4px 9px;
+  border-radius: 12px;
+  font-size: 7px;
+}
+
+.popular .trial {
+  background: #1539f3;
+  color: #fff;
+  border-color: #1539f3;
+}
+
+.priceCard ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 7px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.priceCard li::before {
+  content: '✓';
+  color: #416df4;
+  margin-right: 6px;
+}
+
+@media (max-width: 420px) {
+  .pricing {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

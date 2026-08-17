@@ -1,0 +1,197 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #f6f4ff 0%, #eef6ff 55%, #fbf1fb 100%);
+  padding: 24px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.frame {
+  flex: 1;
+  display: flex;
+  border: 2px solid #111;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 40px;
+  overflow-y: auto;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #161616;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: #fff;
+  border: 1px solid #e2e2e8;
+  padding: 4px;
+  border-radius: 999px;
+  margin-bottom: 34px;
+}
+
+.toggleBtn {
+  border: 0;
+  background: transparent;
+  color: #444;
+  font: 600 12.5px Inter, Arial;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.toggleBtnActive {
+  background: #16151a;
+  color: #fff;
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.planCard {
+  position: relative;
+  box-sizing: border-box;
+  padding: 26px 24px;
+  border-radius: 18px;
+  border: 1px solid #f0e3cf;
+  background: linear-gradient(165deg, #fff8ec 0%, #ffffff 55%);
+  text-align: left;
+}
+
+.planCardHighlighted {
+  border-color: #cfe0f5;
+  background: linear-gradient(165deg, #eef6ff 0%, #ffffff 55%);
+}
+
+.badge {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  background: #dceafd;
+  color: #1d4fa8;
+  font: 700 10.5px Inter, Arial;
+  padding: 5px 11px;
+  border-radius: 999px;
+}
+
+.planIcon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.planIconOrange {
+  background:
+    radial-gradient(circle at 28% 30%, #f5c877 0 40%, transparent 41%),
+    radial-gradient(circle at 70% 24%, #f8dca0 0 34%, transparent 35%),
+    radial-gradient(circle at 55% 68%, #eeb15a 0 38%, transparent 39%);
+}
+
+.planIconBlue {
+  background:
+    radial-gradient(circle at 28% 30%, #8fc1f7 0 40%, transparent 41%),
+    radial-gradient(circle at 70% 24%, #bcdcfb 0 34%, transparent 35%),
+    radial-gradient(circle at 55% 68%, #6ea8ee 0 38%, transparent 39%);
+}
+
+.planName {
+  margin: 0 0 14px;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #171717;
+}
+
+.planPrice {
+  margin: 0 0 16px;
+}
+
+.priceValue {
+  font-size: 24px;
+  font-weight: 800;
+  color: #101010;
+}
+
+.pricePeriod {
+  font-size: 12.5px;
+  color: #8a8a95;
+}
+
+.trialBtn {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #16204a;
+  background: #fff;
+  color: #16204a;
+  font: 700 12.5px Inter, Arial;
+  padding: 11px;
+  border-radius: 9px;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.trialBtn:hover {
+  background: #f7f7fa;
+}
+
+.trialBtnSolid {
+  background: #0f1a3d;
+  color: #fff;
+}
+
+.trialBtnSolid:hover {
+  background: #0a1329;
+}
+
+.featureList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.featureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #4a4a52;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  color: #3ba26a;
+  font-weight: 700;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+@media (max-width: 760px) {
+  .main {
+    padding: 40px 24px;
+  }
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+}

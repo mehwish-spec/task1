@@ -1,0 +1,121 @@
+.cardsWave {
+  position: relative;
+  z-index: 2;
+  margin-top: -26px;
+  height: 26px;
+  background: #37d1c2;
+  overflow: hidden;
+}
+
+.cardsWave::after {
+  content: '';
+  position: absolute;
+  left: -10%;
+  top: 6px;
+  width: 120%;
+  height: 26px;
+  background: #1235f5;
+  clip-path: polygon(
+    0 22%,
+    5% 25%,
+    10% 29%,
+    15% 34%,
+    20% 39%,
+    25% 44%,
+    30% 48%,
+    35% 52%,
+    40% 55%,
+    45% 57%,
+    50% 58%,
+    55% 57%,
+    60% 55%,
+    65% 52%,
+    70% 48%,
+    75% 44%,
+    80% 39%,
+    85% 34%,
+    90% 29%,
+    95% 25%,
+    100% 22%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.studentArea {
+  position: relative;
+  height: 105px;
+  background: #1235f5;
+  padding: 0 24px;
+  overflow: visible;
+}
+
+.studentCards {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: -58px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.studentCard {
+  width: 70px;
+  height: 116px;
+  padding: 5px 5px 4px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transform-origin: center bottom;
+  flex: none;
+}
+
+.studentCard .photo {
+  width: 60px;
+  height: 86px;
+  background: #f1f1f1;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+}
+
+.studentCard span {
+  display: block;
+  margin-top: 4px;
+  font-size: 5.5px;
+  font-weight: 600;
+  color: #222;
+}
+
+.cardA {
+  transform: rotate(-6deg);
+  margin-top: 5px;
+}
+.cardB {
+  transform: rotate(4deg);
+  margin-top: 0;
+}
+.cardC {
+  transform: rotate(-3deg);
+  margin-top: 3px;
+}
+.cardD {
+  transform: rotate(5deg);
+  margin-top: -2px;
+}
+.cardE {
+  transform: rotate(-3deg);
+  margin-top: 2px;
+}
+.cardF {
+  transform: rotate(5deg);
+  margin-top: 4px;
+}
+
+@media (max-width: 420px) {
+  .studentArea {
+    height: 90px;
+  }
+}

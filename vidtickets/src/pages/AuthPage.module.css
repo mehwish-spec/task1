@@ -1,0 +1,75 @@
+.wrap {
+  padding: 48px 28px 60px;
+  text-align: center;
+}
+
+.wrap h1 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+  color: #161616;
+}
+
+.subtitle {
+  font-size: 9px;
+  color: #555;
+  margin: 0 0 28px;
+}
+
+.form {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.field input {
+  font-family: inherit;
+  font-size: 10px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #1235f5;
+}
+
+.submit {
+  margin-top: 6px;
+  border: 0;
+  background: #1235f5;
+  color: #fff;
+  font: 700 10px Inter, Arial;
+  padding: 11px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.switch {
+  margin-top: 18px;
+  font-size: 8px;
+  color: #555;
+}
+
+.switch a {
+  color: #1235f5;
+  font-weight: 700;
+  text-decoration: none;
+}

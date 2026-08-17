@@ -1,0 +1,67 @@
+.blueWrap {
+  position: relative;
+  z-index: 3;
+  padding: 0 28px;
+  background: transparent;
+}
+
+.blueBox {
+  min-height: 212px;
+  border-radius: 17px;
+  background: #1035f5;
+  color: #fff;
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
+  padding: 31px 45% 20px 50px;
+}
+
+.blueBox h2 {
+  margin: 0 0 13px;
+  font-size: 16px;
+  line-height: 1.17;
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+
+.blueBox p {
+  margin: 0 0 9px;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.blueBox ul {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.blueMedia {
+  position: absolute;
+  right: 9px;
+  top: 7px;
+  width: 129px;
+  height: 195px;
+  border-radius: 18px;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 420px) {
+  .blueWrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .blueBox {
+    padding-left: 28px;
+    padding-right: 42%;
+  }
+  .blueMedia {
+    right: 7px;
+    top: 6px;
+    width: 88px;
+    height: 145px;
+    border-radius: 14px;
+  }
+}

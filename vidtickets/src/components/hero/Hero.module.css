@@ -1,0 +1,210 @@
+.hero {
+  height: 250px;
+  position: relative;
+  overflow: visible;
+  color: #fff;
+  background: #4100ff;
+}
+
+.heroCopy {
+  position: absolute;
+  z-index: 15;
+  top: 69px;
+  left: 35px;
+  right: 35px;
+  text-align: center;
+}
+
+.heroCopy h1 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 1.13;
+  letter-spacing: -0.55px;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.action {
+  border: 0;
+  background: #fff;
+  color: #4200dc;
+  padding: 7px 13px;
+  border-radius: 5px;
+  font: 700 6.5px Inter, Arial;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Reference-matched U-shaped background transition */
+.heroWave {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 230px;
+  height: 105px;
+  background: #37d1c2;
+  overflow: hidden;
+}
+
+.heroWave::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: -10%;
+  top: -30px;
+  width: 120%;
+  height: 85px;
+  background: #4100ff;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.heroWave::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  left: -10%;
+  top: 28px;
+  width: 120%;
+  height: 105px;
+  background: #fff3f0;
+  clip-path: polygon(
+    0 22%,
+    5% 25%,
+    10% 29%,
+    15% 34%,
+    20% 39%,
+    25% 44%,
+    30% 48%,
+    35% 52%,
+    40% 55%,
+    45% 57%,
+    50% 58%,
+    55% 57%,
+    60% 55%,
+    65% 52%,
+    70% 48%,
+    75% 44%,
+    80% 39%,
+    85% 34%,
+    90% 29%,
+    95% 25%,
+    100% 22%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Blank media composition: same layered geometry as the reference, no imagery */
+.heroMedia {
+  position: relative;
+  z-index: 10;
+  width: 86%;
+  height: 285px;
+  margin: -92px auto 0;
+  background: transparent;
+}
+
+.heroSide,
+.heroCenter {
+  position: absolute;
+  background: #f1f1f1;
+  border: 1px solid #d8d8d8;
+}
+
+.heroSide {
+  width: 68px;
+  height: 105px;
+  border-radius: 4px;
+}
+
+.heroSideLeft1 {
+  left: 0;
+  top: 14px;
+}
+
+.heroSideLeft2 {
+  left: 32px;
+  top: 48px;
+  width: 112px;
+  height: 130px;
+}
+
+.heroSideRight1 {
+  right: 0;
+  top: 14px;
+}
+
+.heroSideRight2 {
+  right: 32px;
+  top: 48px;
+  width: 112px;
+  height: 130px;
+}
+
+.heroCenter {
+  left: 50%;
+  top: 43px;
+  transform: translateX(-50%);
+  width: 278px;
+  height: 174px;
+  border-radius: 7px;
+}
+
+@media (max-width: 420px) {
+  .hero {
+    height: 285px;
+  }
+  .heroWave {
+    top: 266px;
+    height: 92px;
+  }
+  .heroWave::before {
+    top: -24px;
+    height: 72px;
+  }
+  .heroWave::after {
+    top: 36px;
+    height: 76px;
+  }
+  .heroMedia {
+    width: 86%;
+    height: 220px;
+    margin-top: -165px;
+  }
+  .heroSide {
+    width: 55px;
+    height: 78px;
+  }
+  .heroSideLeft1 {
+    left: 0;
+    top: 18px;
+  }
+  .heroSideLeft2 {
+    left: 32px;
+    top: 48px;
+    width: 82px;
+    height: 100px;
+  }
+  .heroSideRight1 {
+    right: 0;
+    top: 18px;
+  }
+  .heroSideRight2 {
+    right: 32px;
+    top: 48px;
+    width: 82px;
+    height: 100px;
+  }
+  .heroCenter {
+    top: 42px;
+    width: 62%;
+    height: 150px;
+  }
+}

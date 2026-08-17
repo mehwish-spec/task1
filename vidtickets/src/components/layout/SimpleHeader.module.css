@@ -1,0 +1,31 @@
+.simpleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #3300c7;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.45px;
+  white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand em {
+  font-style: normal;
+  font-size: 5px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 2px;
+}
+
+.backLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 7px;
+  font-weight: 500;
+}

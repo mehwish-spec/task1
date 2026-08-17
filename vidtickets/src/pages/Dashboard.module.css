@@ -1,0 +1,287 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #f6f4ff 0%, #eef6ff 55%, #fbf1fb 100%);
+  padding: 24px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.frame {
+  flex: 1;
+  display: flex;
+  border: 2px solid #111;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+}
+
+.heroVisual {
+  position: relative;
+  width: 380px;
+  height: 260px;
+  margin-bottom: 34px;
+}
+
+.bubbleIcon {
+  position: absolute;
+  left: 26px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eafaf7;
+  border: 2px solid #37d1c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.grid {
+  position: absolute;
+  left: 88px;
+  top: 20px;
+  width: 280px;
+  height: 190px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 9px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+}
+
+.gridControls {
+  height: 9px;
+  width: 40%;
+  background: #333;
+  border-radius: 4px;
+  margin-bottom: 7px;
+}
+
+.gridTiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  height: 63%;
+}
+
+.tile {
+  background: linear-gradient(160deg, #3a3a3a, #262626);
+  border-radius: 4px;
+}
+
+.gridPlayer {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  width: 32%;
+  height: 54%;
+  background: #2c2c2c;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.gridFooter {
+  margin-top: 7px;
+  height: 11px;
+  width: 70%;
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.flowerIcon {
+  position: absolute;
+  right: 10px;
+  bottom: 62px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #37d1c2;
+}
+
+.replyCardBehind {
+  position: absolute;
+  left: 0;
+  top: 88px;
+  width: 116px;
+  height: 116px;
+  background: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-end;
+  padding: 9px;
+}
+
+.avatarBadge {
+  background: #fff;
+  border-radius: 20px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.replyCard {
+  position: absolute;
+  left: 66px;
+  top: 148px;
+  width: 176px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.replyPhoto {
+  width: 100%;
+  height: 78px;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #e7c9c0, #d9a9a0);
+  margin-bottom: 9px;
+}
+
+.replyLine {
+  height: 7px;
+  border-radius: 3px;
+  background: #e2e2e2;
+  margin-bottom: 6px;
+}
+
+.replyLineShort {
+  width: 60%;
+}
+
+.replyAvatar {
+  position: absolute;
+  right: -12px;
+  bottom: -12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0d3cb;
+  border: 3px solid #6a5ef5;
+}
+
+.extraAvatar {
+  position: absolute;
+  right: 92px;
+  bottom: -18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(155deg, #e7c9c0, #9aa6f2 70%);
+  border: 3px solid #1a1a1a;
+}
+
+.heroText {
+  max-width: 460px;
+  margin: 0 0 28px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 260px;
+}
+
+.tutorialBtn {
+  border: 2px solid #3d1bff;
+  background: #fff;
+  color: #3d1bff;
+  font: 700 13.5px Inter, Arial;
+  padding: 11px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.newTicketBtn {
+  border: 0;
+  background: #3d1bff;
+  color: #fff;
+  font: 700 13.5px Inter, Arial;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ticketsMain {
+  flex: 1;
+  padding: 40px 56px 48px;
+  overflow-y: auto;
+}
+
+.ticketsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.ticketsTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #161616;
+}
+
+.newTicketBtnSmall {
+  border: 0;
+  background: #3d1bff;
+  color: #fff;
+  font: 700 13px Inter, Arial;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.newTicketBtnSmall:hover {
+  background: #3016d1;
+}
+
+.ticketList {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 700px;
+}
+
+@media (max-width: 900px) {
+  .ticketsMain {
+    padding: 28px 24px 36px;
+  }
+}
+
+@media (max-width: 860px) {
+  .shell {
+    padding: 0;
+  }
+  .frame {
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .heroVisual {
+    width: 300px;
+    height: 220px;
+    transform: scale(0.85);
+  }
+}

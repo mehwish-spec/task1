@@ -1,0 +1,801 @@
+.shell {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow: hidden;
+  font-family: Inter, Arial, sans-serif;
+  background-color: #241a52;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(233, 78, 194, 0.85) 0%, rgba(233, 78, 194, 0) 42%),
+    radial-gradient(circle at 88% 4%, rgba(255, 95, 109, 0.8) 0%, rgba(255, 95, 109, 0) 45%),
+    radial-gradient(circle at 6% 92%, rgba(247, 208, 56, 0.75) 0%, rgba(247, 208, 56, 0) 40%),
+    radial-gradient(circle at 92% 88%, rgba(255, 75, 139, 0.75) 0%, rgba(255, 75, 139, 0) 45%),
+    radial-gradient(circle at 50% 50%, #4b2aad 0%, #2a1a5e 55%, #1e1240 100%);
+}
+
+/* Decorative floating shapes on the colorful background */
+.dot {
+  position: absolute;
+  left: 24%;
+  top: 11%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e94ec2;
+}
+
+.ringTop {
+  position: absolute;
+  left: 55%;
+  top: 7%;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5f9e, #4fb6ff);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+}
+
+.sphereTop {
+  position: absolute;
+  right: 8%;
+  top: 8%;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #7bf0c8, #2f8f5f 70%, #1e6b45 100%);
+}
+
+.sphereBottom {
+  position: absolute;
+  left: 37%;
+  bottom: 15%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #7bf0c8, #2f8f5f 70%, #1e6b45 100%);
+}
+
+.ringBottom {
+  position: absolute;
+  left: 54%;
+  bottom: 11%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5f9e, #4fb6ff);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+}
+
+.brandMark {
+  position: absolute;
+  left: 32px;
+  bottom: 28px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.3px;
+}
+
+.brandMark sup {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 40px 80px rgba(10, 4, 40, 0.35);
+  overflow: hidden;
+}
+
+.backSlot {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  z-index: 2;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px 56px 40px;
+}
+
+.text {
+  max-width: 420px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #555;
+  letter-spacing: 0.2px;
+}
+
+.headline {
+  margin: 0 0 18px;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #161616;
+}
+
+.accent {
+  color: #3d1bff;
+}
+
+.body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.divider {
+  height: 1px;
+  background: #eaeaee;
+  margin: 0 56px;
+}
+
+.actions {
+  /* Establishes its own stacking position so it always paints above
+     .content — without this, .visual's absolutely-positioned children
+     (e.g. step 2's .recordFrame) belong to the SAME stacking context as
+     .actions (neither .content nor .visual creates one of its own), and per
+     CSS's painting order, ANY positioned descendant paints above ALL
+     normal-flow content in that context regardless of DOM order. That let
+     .recordFrame visually bury the Continue button whenever their boxes
+     happened to overlap at some viewport width, even though Continue comes
+     later in the markup. This makes that class of bug impossible instead of
+     chasing every width it could occur at. */
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 56px 28px;
+}
+
+.continueBtn {
+  border: 2px solid #3d1bff;
+  background: #fff;
+  color: #3d1bff;
+  font: 700 14px Inter, Arial;
+  padding: 11px 30px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.continueBtn:hover {
+  background: #f4f2ff;
+}
+
+/* Illustration collage (placeholders — no real photos rendered), shared
+   visual language with the Login/Signup split-screen pages. */
+.visual {
+  position: relative;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* Collage visuals (steps 1, 2, 4) are built entirely from
+   absolutely-positioned children, which don't contribute to the parent's
+   height — so those need an explicit box height. Visuals built from
+   normal-flow content (steps 3, 5) size themselves and must NOT get a fixed
+   height, or taller content (e.g. the step 5 email form) gets clipped. */
+.visualFixed {
+  height: 220px;
+}
+
+/* Step 2 uses its own fixed-height class (rather than .visualFixed) because
+   its mobile layout needs a different override below — .visualFixed's
+   height must stay fixed on mobile for steps 1/4 (their children stay
+   absolutely positioned and contribute no flow height of their own), but
+   step 2's settingsPanel/recordFrame switch to normal, stacked flow on
+   mobile and need the container to grow with them instead. */
+.recordVisual {
+  height: 220px;
+  /* .content vertically centers its two flex children by default. At
+     widths where .text has to wrap onto more lines than usual (e.g. just
+     above the mobile breakpoint, before .text has room for its full
+     max-width), that makes .text taller than this box — and centering
+     would then push this whole box, including .recordFrame hanging off its
+     bottom edge, further down the row than its own 220px height accounts
+     for, right into where the Continue button sits below. Pinning this
+     visual to the top of the row keeps its position (and recordFrame's)
+     stable regardless of how tall the text column gets. */
+  align-self: flex-start;
+}
+
+.bubbleIcon {
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eafaf7;
+  border: 2px solid #37d1c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.grid {
+  position: absolute;
+  left: 40px;
+  top: 10px;
+  width: 260px;
+  height: 175px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.gridControls {
+  height: 8px;
+  width: 40%;
+  background: #333;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.gridTiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  height: 62%;
+}
+
+.tile {
+  background: linear-gradient(160deg, #3a3a3a, #262626);
+  border-radius: 4px;
+}
+
+.gridPlayer {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 32%;
+  height: 52%;
+  background: #2c2c2c;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.gridFooter {
+  margin-top: 6px;
+  height: 10px;
+  width: 70%;
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.flowerIcon {
+  position: absolute;
+  right: -8px;
+  bottom: 46px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #37d1c2;
+  z-index: 2;
+}
+
+.replyCardBehind {
+  position: absolute;
+  left: -14px;
+  top: 96px;
+  width: 96px;
+  height: 96px;
+  background: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+}
+
+.avatarBadge {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.replyCard {
+  position: absolute;
+  left: 60px;
+  top: 130px;
+  width: 150px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.replyPhoto {
+  width: 100%;
+  height: 64px;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #e7c9c0, #d9a9a0);
+  margin-bottom: 8px;
+}
+
+.replyLine {
+  height: 6px;
+  border-radius: 3px;
+  background: #e2e2e2;
+  margin-bottom: 5px;
+}
+
+.replyLineShort {
+  width: 60%;
+}
+
+.replyAvatar {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f0d3cb;
+  border: 3px solid #6a5ef5;
+}
+
+/* Step 2 — settings-panel + recording-frame mockup */
+.settingsPanel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  background: #fff;
+  border: 1px solid #e6e6ec;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  font-size: 9px;
+  color: #333;
+}
+
+.settingsLabel {
+  margin: 8px 0 4px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #333;
+}
+
+.settingsLabel:first-child {
+  margin-top: 0;
+}
+
+.settingsInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 5px 7px;
+  font-size: 9px;
+  color: #444;
+}
+
+.settingsPlaceholder {
+  color: #9a9aa2;
+}
+
+.settingsCounter {
+  color: #b5b5bd;
+  font-size: 8px;
+}
+
+.optionRow {
+  display: flex;
+  gap: 6px;
+}
+
+.optionCard {
+  flex: 1;
+  border: 1px solid #e2e2e8;
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 40px;
+}
+
+.optionCardActive {
+  border-color: #3d1bff;
+  background: #f5f3ff;
+}
+
+.optionIcon {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: #c9c2ff;
+}
+
+.optionTitle {
+  font-size: 9px;
+  font-weight: 700;
+  color: #161616;
+}
+
+.optionSubtitle {
+  font-size: 7.5px;
+  line-height: 1.3;
+  color: #8a8a95;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.toggle {
+  width: 22px;
+  height: 12px;
+  border-radius: 999px;
+  background: #d8d8dd;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.toggleOn {
+  background: #37d1c2;
+}
+
+.toggleOn::after {
+  left: auto;
+  right: 2px;
+}
+
+.recordFrame {
+  position: absolute;
+  right: -14px;
+  bottom: -16px;
+  width: 118px;
+  height: 168px;
+  border: 3px solid #3d1bff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  background: #111;
+}
+
+.recordPreview {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, #cbd0ff 0%, #9aa6f2 45%, #6e79d6 100%);
+}
+
+.recordDot {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff3b30;
+  border: 2px solid #fff;
+}
+
+.flipIcon {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Step 3 — visibility dropdown + reply card mockup */
+.replyStack {
+  position: relative;
+  width: 150px;
+}
+
+.dropdownPill {
+  background: #37d1c2;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chevron {
+  font-size: 12px;
+}
+
+.dropdownList {
+  background: #fff;
+  border: 1px solid #eee;
+  border-top: none;
+  padding: 4px 0 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #333;
+  padding: 5px 12px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.statusDotTeal {
+  background: #37d1c2;
+}
+
+.statusDotPink {
+  background: #e94ec2;
+}
+
+.thumbCard {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(165deg, #2a2a3a 0%, #4b4b63 60%, #6d6d8c 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.thumbLabel {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.captionBubble {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 9.5px;
+  line-height: 1.4;
+  color: #444;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Step 4 — reuses .grid/.tile/etc above, plus a standalone corner avatar */
+.standaloneAvatar {
+  position: absolute;
+  left: 26px;
+  bottom: -4px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #e7c9c0, #d9a9a0);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 3px #6a5ef5, 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Step 5 — email invite compose mockup */
+.emailForm {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.emailField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.emailLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+}
+
+.emailBox {
+  position: relative;
+  border: 1px solid #d8d8dd;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 11px;
+  color: #333;
+  background: #fff;
+  line-height: 1.5;
+}
+
+.emailPlaceholder {
+  color: #9a9aa2;
+}
+
+.emailToInput {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: none;
+  font: inherit;
+  font-size: 11px;
+  color: #333;
+  padding: 0;
+}
+
+.emailToInput::placeholder {
+  color: #9a9aa2;
+}
+
+/* Only the "To" field has the circular "+" add button, so only it needs
+   room carved out on the right — every other field's input/textarea uses
+   the full box width. */
+.emailToInputWithAddBtn {
+  width: calc(100% - 26px);
+}
+
+.emailTextarea {
+  min-height: 66px;
+}
+
+.emailMessageInput {
+  width: 100%;
+  min-height: 66px;
+  border: 0;
+  outline: none;
+  background: none;
+  resize: vertical;
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #333;
+  padding: 0;
+}
+
+.addBtn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3d1bff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Final-step footer: "Skip" + solid "Send Invites" */
+.actionsBetween {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skipLink {
+  border: 0;
+  background: none;
+  color: #666;
+  font: 600 13px Inter, Arial;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.skipLink:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.sendBtn {
+  border: 0;
+  background: #3d1bff;
+  color: #fff;
+  font: 700 14px Inter, Arial;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sendBtn:hover {
+  background: #3016d1;
+}
+
+.sendBtnSent {
+  background: #22c55e;
+  cursor: default;
+}
+
+.sendBtnSent:hover {
+  background: #22c55e;
+}
+
+@media (max-width: 860px) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px 28px;
+  }
+  .text {
+    max-width: 100%;
+  }
+  .visual {
+    align-self: center;
+  }
+  .divider {
+    margin: 0 28px;
+  }
+  .actions {
+    padding: 18px 28px 24px;
+  }
+  .headline {
+    font-size: 27px;
+  }
+  .settingsPanel {
+    position: static;
+    width: 100%;
+    max-width: 260px;
+  }
+  .recordFrame {
+    /* Must stay a positioning context (relative, not static) — its
+       recordPreview/recordDot/flipIcon children are absolutely positioned
+       against it. Losing that made recordPreview fall through to .visual
+       instead, ballooning to cover the whole box (including settingsPanel
+       behind it) rather than staying inside recordFrame's own 118×168 frame. */
+    position: relative;
+    margin-top: 12px;
+  }
+  .recordVisual {
+    /* settingsPanel + recordFrame are now stacked, normal-flow content
+       (see the .settingsPanel/.recordFrame rules above) — a fixed height
+       here would clip/overflow them into the Continue button below it. */
+    height: auto;
+  }
+}

@@ -1,0 +1,31 @@
+.trust {
+  background: #f7f7f8;
+  padding: 26px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+
+.trustBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex: none;
+  display: block;
+  object-fit: contain;
+}
+
+.trustBadge span {
+  font-size: 6.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+}

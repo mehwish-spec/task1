@@ -1,0 +1,399 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #f6f4ff 0%, #eef6ff 55%, #fbf1fb 100%);
+  padding: 24px;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.frame {
+  flex: 1;
+  display: flex;
+  border: 2px solid #111;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 56px 48px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.backCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e2e2e8;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backCircle:hover {
+  background: #f5f5f8;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #161616;
+}
+
+.progressBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  max-width: 620px;
+}
+
+.progressSegment {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: #e2e2e8;
+}
+
+.progressActive {
+  background: #37d1c2;
+}
+
+.recordCard {
+  max-width: 620px;
+  background: #fff;
+  border: 1px solid #ececf2;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(20, 10, 60, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stageLabel {
+  margin: 0 0 20px;
+  font: 700 15px Inter, Arial;
+  color: #222;
+  line-height: 1.5;
+}
+
+.stageLabelRecording {
+  color: #e0353b;
+}
+
+.previewWrap {
+  position: relative;
+  width: 260px;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.previewImg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, #cbd0ff 0%, #9aa6f2 45%, #6e79d6 100%);
+  transition: transform 0.2s ease;
+}
+
+.previewMirrored {
+  transform: scaleX(-1);
+}
+
+.previewVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #12111a;
+}
+
+.cameraFallbackBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 6px 9px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.recPulse {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 9px 4px 7px;
+  border-radius: 999px;
+}
+
+.recDotSmall {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff3b30;
+  animation: pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.recordControls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.recordCircle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ff3b30;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.recordCircleActive {
+  background: #fff;
+}
+
+.recordCircleActive::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #ff3b30;
+}
+
+.recordCircle:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.flipBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipBtn:hover {
+  background: #fff;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+/* While the recording is actually playing, fade the dark tint back so the
+   video is easy to watch — the pause icon stays visible on hover/tap. */
+.playOverlayPlaying {
+  background: transparent;
+}
+
+.playOverlayPlaying .playCircle {
+  opacity: 0;
+}
+
+.playOverlayPlaying:hover .playCircle,
+.playOverlayPlaying:focus-visible .playCircle {
+  opacity: 1;
+}
+
+.playCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #222;
+  transition: opacity 0.15s ease;
+}
+
+.deviceRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.deviceSelect {
+  position: relative;
+}
+
+.deviceBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: 600 12.5px Inter, Arial;
+  color: #444;
+  padding: 4px;
+}
+
+.deviceIcon {
+  font-size: 13px;
+}
+
+.deviceLabel {
+  max-width: 108px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deviceChevron {
+  font-size: 10px;
+  color: #9a9aa2;
+}
+
+.deviceMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #ececf2;
+  border-radius: 10px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+  padding: 6px;
+  list-style: none;
+  margin: 0;
+  z-index: 3;
+  min-width: 180px;
+}
+
+.deviceOption {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+}
+
+.deviceOption:hover {
+  background: #f5f5f8;
+}
+
+.reRecordBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #d8d8dd;
+  background: #fff;
+  color: #333;
+  font: 600 12.5px Inter, Arial;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reRecordBtn:hover {
+  background: #f5f5f8;
+}
+
+.actions {
+  max-width: 620px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+}
+
+.continueBtn {
+  border: 0;
+  background: #b7b3c9;
+  color: #fff;
+  font: 700 14px Inter, Arial;
+  padding: 13px 26px;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.continueBtnEnabled {
+  background: #3d1bff;
+  cursor: pointer;
+}
+
+.continueBtnEnabled:hover {
+  background: #3016d1;
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding: 28px 24px 36px;
+  }
+  .deviceRow {
+    gap: 16px;
+  }
+}

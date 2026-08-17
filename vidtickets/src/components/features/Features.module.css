@@ -1,0 +1,97 @@
+.features {
+  margin-top: -105px;
+  padding: 48px 30px 40px;
+  background: #fff3f0;
+  position: relative;
+  z-index: 6;
+}
+
+.features h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-weight: 700;
+}
+
+.features h2 span {
+  color: #7500e9;
+  text-decoration: underline;
+  text-decoration-color: #7500e9;
+  text-underline-offset: 3px;
+}
+
+.lead {
+  margin: 0 0 16px;
+  font-size: 7px;
+  line-height: 1.45;
+  color: #333;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.card {
+  min-height: 132px;
+  padding: 13px 10px 10px;
+  border-radius: 9px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.number {
+  font-size: 8px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.card > div {
+  margin: 0;
+}
+
+.card:nth-child(1) {
+  background: #7100ed;
+}
+.card:nth-child(2) {
+  background: #00852e;
+}
+.card:nth-child(3) {
+  background: #db00ca;
+}
+.card:nth-child(4) {
+  background: #ff9000;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.15;
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  font-size: 8px;
+  line-height: 1.4;
+  opacity: 0.94;
+}
+
+@media (max-width: 420px) {
+  .features {
+    margin-top: -46px;
+    padding: 38px 20px 40px;
+  }
+  .card {
+    min-height: 126px;
+    padding: 11px 8px;
+  }
+  .card h3 {
+    font-size: 10px;
+  }
+}

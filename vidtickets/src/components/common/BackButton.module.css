@@ -1,0 +1,22 @@
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  color: #555;
+  font: 600 13px Inter, Arial;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.backBtn:hover {
+  background: #f1f1f5;
+  color: #222;
+}
+
+.backBtn span {
+  font-size: 15px;
+  line-height: 1;
+}

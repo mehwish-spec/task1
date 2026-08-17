@@ -1,0 +1,40 @@
+.siteFooter {
+  background: #fff;
+  border-top: 1px solid #ececec;
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brandMark {
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.4px;
+  color: #1235f5;
+}
+
+.brandMark sup {
+  font-size: 6px;
+  color: #ff9000;
+}
+
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerNav a {
+  font-size: 7px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+.footerNav a.footerSignup {
+  color: #1235f5;
+  font-weight: 700;
+}
